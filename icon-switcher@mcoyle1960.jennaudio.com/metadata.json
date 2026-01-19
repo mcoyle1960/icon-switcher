@@ -1,0 +1,10 @@
+{
+  "name": "Icon Theme Switcher",
+  "description": "Quickly change icon themes from the top bar.",
+  "uuid": "icon-switcher@mcoyle1960.jennaudio.com",
+  "shell-version": [
+    "48",
+    "49"
+  ],
+"url": "https://github.com/mcoyle1960/icon-switcher"
+}
