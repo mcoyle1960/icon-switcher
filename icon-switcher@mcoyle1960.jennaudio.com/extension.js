@@ -1,32 +1,24 @@
 /* extension.js */
 /**
  * Icon Switcher - GNOME Shell Extension
- * * This extension provides a quick-access menu in the GNOME Top Bar to switch
- * between installed icon themes. It specifically targets Fedora/RHEL environments
- * using GNOME 45+ ESM syntax.
+ *This extension provides a quick-access menu in the GNOME Top Bar to switch
+ * between installed icon themes.
  */
 
-// GObject provides the underlying object system used by GNOME
 import GObject from 'gi://GObject';
-// Gio handles file system monitoring and GSettings access
 import Gio from 'gi://Gio';
-// GLib provides core utilities like path handling and main loops
 import GLib from 'gi://GLib';
-// St (Shell Toolkit) provides UI elements like icons and labels
 import St from 'gi://St';
-
-// Standard extension imports for GNOME 45+ ESM environment
 import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
-// Schema constants for interacting with desktop-wide interface settings
 const INTERFACE_SETTINGS = 'org.gnome.desktop.interface';
 const ICON_KEY = 'icon-theme';
 
 /**
- * Utility: Scans standard Linux icon directories to find valid themes.
+ * Scans standard Linux icon directories to find valid themes.
  * It looks for folders containing an 'index.theme' file, which identifies 
  * a directory as a legitimate icon theme.
  * * @returns {Array} A sorted list of unique theme names.
@@ -72,7 +64,6 @@ function getAvailableIconThemes() {
 
 /**
  * The Indicator class defines the icon appearing in the Top Bar.
- * Inherits from PanelMenu.Button for native shell integration.
  */
 const Indicator = GObject.registerClass({
     GTypeName: 'IconSwitcherIndicator',
@@ -95,6 +86,7 @@ const Indicator = GObject.registerClass({
         // Add the visual icon to the panel button using Adwaita symbolics
         this.add_child(new St.Icon({
             gicon: new Gio.FileIcon({
+                // Picked this inoffensive icon because it's available on all Gnome systems.
                 file: Gio.File.new_for_path('/usr/share/icons/Adwaita/symbolic/status/user-available-symbolic.svg')
             }),
             style_class: 'system-status-icon',
@@ -119,8 +111,8 @@ const Indicator = GObject.registerClass({
         this.menu.removeAll();
         this._menuItems = {};
 
-        // 1. Add 'Refresh' button to allow users to see newly installed themes
-        let refreshItem = new PopupMenu.PopupImageMenuItem(_('Refresh Icon List...'), 'view-refresh-symbolic');
+        //  Refresh button
+        let refreshItem = new PopupMenu.PopupImageMenuItem(_('Refresh Icon List…'), 'view-refresh-symbolic', {});
         refreshItem.connect('activate', () => {
             this._buildMenu();
         });
