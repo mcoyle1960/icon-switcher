@@ -1,37 +1,26 @@
-# Icon Switcher
-Gnome Extension the puts an icon in the topbar allowing you to quickly switch between icon sets.
-It looks in both /urs/share/icons & ~/.local/share/icons for folders with an index.theme.
+# Icon Theme Switcher
 
-If you add new themes just hit refresh. Once selected you'll see the new icon theme immediately.
-
+A lightweight GNOME Shell extension that adds a quick-access menu to the Top Bar for switching between installed icon themes. 
 
 ![Icon Switcher Demo](IconSwitcher.gif)
 
+## Features
+* **Auto-Discovery**: Scans both system-wide (`/usr/share/icons`) and user-local (`~/.local/share/icons`) directories.
+* **Smart Validation**: Only displays valid icon themes (folders containing an `index.theme` file).
+* **Live Refresh**: Update the theme list on the fly without restarting GNOME Shell.
+* **Native Integration**: Synchronizes automatically with GNOME Tweaks and System Settings.
+* **Localization**: Full support for English, Spanish, and French.
 
-### Installation
+## Installation
 
-#### Option 1: Using git (Recommended)
+### Option 1: Using git (Recommended)
 ```shell
 git clone [https://github.com/mcoyle1960/icon-switcher.git](https://github.com/mcoyle1960/icon-switcher.git)
-cp -Rf ~/icon-switcher/icon-switcher@mcoyle1960.jennaudio.com ~/.local/share/gnome-shell/extensions/
-```
+mkdir -p ~/.local/share/gnome-shell/extensions/
+cp -Rf icon-switcher/icon-switcher@mcoyle1960.jennaudio.com ~/.local/share/gnome-shell/extensions/
 
 After testing to make sure it's installed correctly, clean up with 
 
 ```shell
 cd ~
 rm -Rf ~/icon-switcher/
-```
-
-#### Option 2: Manual Download
-1. Download the [Source ZIP](https://github.com/mcoyle1960/icon-switcher/archive/refs/heads/main.zip).
-2. Extract the archive.
-3. Copy the extension folder to your local extensions directory:
-
-```shell
-   cp -Rf ~/Downloads/icon-switcher-main/icon-switcher@mcoyle1960.jennaudio.com ~/.local/share/gnome-shell/extensions/
-```
-
-
-Log out and back in to load the extension.
-
