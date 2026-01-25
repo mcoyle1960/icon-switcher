@@ -121,7 +121,6 @@ const Indicator = GObject.registerClass({
 
 export default class IconSwitcherExtension extends Extension {
     enable() {
-        this.initTranslations();
         this._indicator = new Indicator();
         Main.panel.addToStatusArea(this.uuid, this._indicator);
     }
