@@ -5,9 +5,7 @@ It looks in both /urs/share/icons & ~/.local/share/icons for folders with an ind
 If you add new themes just hit refresh. Once selected you'll see the new icon theme immediately.
 
 
-<div align="center">
-  <video src="IconSwitcher.mp4" width="100%" autoplay loop muted playsinline></video>
-</div>
+![icon-switcher demo](IconSwitcher.mp4)
 
 
 ### Installation
