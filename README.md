@@ -13,7 +13,10 @@ A lightweight GNOME Shell extension that adds a quick-access menu to the Top Bar
 
 ## Installation
 
-### Option 1: Using git (Recommended)
+[![GNOME Extensions](https://github.com/andyholmes/gnome-shell-extensions-badge/raw/master/get-it-on-ego.png)](https://extensions.gnome.org/extension/9206/icon-theme-switcher/)
+
+
+### Option 2: Using git
 ```shell
 git clone [https://github.com/mcoyle1960/icon-switcher.git](https://github.com/mcoyle1960/icon-switcher.git)
 mkdir -p ~/.local/share/gnome-shell/extensions/
